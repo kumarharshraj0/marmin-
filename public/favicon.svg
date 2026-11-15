@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <g transform="translate(50, 55)">
+    <!-- Top face (Lighter Purple) -->
+    <polygon points="0,-45 40,-25 0,-5 -40,-25" fill="#a855f7" />
+    
+    <!-- Left face (Darker Purple) -->
+    <polygon points="-40,-25 0,-5 0,35 -40,15" fill="#7e22ce" />
+    
+    <!-- Right face (Deep Purple) -->
+    <polygon points="0,-5 40,-25 40,15 0,35" fill="#581c87" />
+    
+    <!-- Accent Line (Neon Purple) -->
+    <polyline points="-40,-25 0,-5 40,-25" fill="none" stroke="#d8b4fe" stroke-width="2" stroke-linejoin="round" />
+    <line x1="0" y1="-5" x2="0" y2="35" stroke="#d8b4fe" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>

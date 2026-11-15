@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hharshportfolio.com/sitemap.xml
