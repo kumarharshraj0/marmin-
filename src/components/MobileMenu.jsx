@@ -42,8 +42,25 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }) {
                                 >
                                     <a
                                         href={link.href}
-                                        onClick={() => setIsOpen(false)}
-                                        className="flex items-baseline gap-4"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setIsOpen(false);
+                                            setTimeout(() => {
+                                                if (link.href === "#" || link.href === "#hero") {
+                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                    return;
+                                                }
+                                                const targetId = link.href.replace('#', '');
+                                                const targetEl = document.getElementById(targetId);
+                                                if (targetEl) {
+                                                    const navOffset = 80;
+                                                    const elementPosition = targetEl.getBoundingClientRect().top;
+                                                    const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+                                                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                                                }
+                                            }, 250);
+                                        }}
+                                        className="flex items-baseline gap-4 cursor-pointer"
                                     >
                                         <span className="text-xs font-medium text-purple-500/50 group-hover:text-purple-500 transition-colors">
                                             0{index + 1} /

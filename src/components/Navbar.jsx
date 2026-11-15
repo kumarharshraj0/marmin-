@@ -20,12 +20,34 @@ export default function Navbar() {
     }, [isOpen])
 
     const navLinks = [
-        { name: "Home", href: "#" },
+        { name: "Home", href: "#hero" },
         { name: "About", href: "#about" },
-        { name: "services", href: "#services" },
+        { name: "Showreel", href: "#showreel" },
+        { name: "Services", href: "#services" },
+        { name: "Work", href: "#projects" },
         { name: "Testimonials", href: "#testimonials" },
         { name: "Contact", href: "#contact" },
     ]
+
+    const handleScroll = (e, href) => {
+        e.preventDefault();
+        if (href === "#" || href === "#hero") {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        const targetId = href.replace('#', '');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+            const navOffset = 90;
+            const elementPosition = targetEl.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
 
     return (
         <>
@@ -53,12 +75,13 @@ export default function Navbar() {
                     </a>
                 </div>
 
-                <div className="hidden md:flex items-center justify-center gap-8 px-8 py-2 rounded-full bg-white/[0.02] border border-white/5 backdrop-blur-md">
+                <div className="hidden md:flex items-center justify-center gap-7 px-8 py-2 rounded-full bg-white/[0.02] border border-white/5 backdrop-blur-md">
                     {navLinks.map((link) => (
                         <Magnetic key={link.name}>
                             <a
                                 href={link.href}
-                                className="text-[14px] font-medium text-white/60 hover:text-white transition-colors font-sans"
+                                onClick={(e) => handleScroll(e, link.href)}
+                                className="text-[14px] font-medium text-white/60 hover:text-white transition-colors font-sans cursor-pointer"
                             >
                                 {link.name}
                             </a>
