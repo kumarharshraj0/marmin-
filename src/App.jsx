@@ -38,8 +38,8 @@ function AppContent() {
       <main>
         <div id="hero"><Hero isLoaded={isLoaded} /></div>
         <SkillsMarquee />
-        <LazySection height="min-h-screen">
-          <div id="about"><About /></div>
+        <LazySection id="about" height="min-h-screen">
+          <About />
         </LazySection>
 
         <Suspense fallback={<div className="min-h-[50vh] w-full" />}>
@@ -65,28 +65,26 @@ function AppContent() {
         </Suspense>
 
         <Suspense fallback={<div className="min-h-screen w-full" />}>
-          <LazySection height="min-h-screen">
-            <div id="projects"><Projects /></div>
+          <LazySection id="projects" height="min-h-screen">
+            <Projects />
           </LazySection>
         </Suspense>
 
         <Suspense fallback={<div className="min-h-screen w-full" />}>
-          <LazySection height="min-h-screen">
-            <div id="services"><Services /></div>
+          <LazySection id="services" height="min-h-screen">
+            <Services />
           </LazySection>
         </Suspense>
 
         <Suspense fallback={<div className="min-h-screen w-full" />}>
-          <LazySection height="min-h-screen">
-            <div id="industries"><Industries /></div>
+          <LazySection id="industries" height="min-h-screen">
+            <Industries />
           </LazySection>
         </Suspense>
 
-
-
         <Suspense fallback={<div className="min-h-screen w-full" />}>
-          <LazySection height="min-h-screen">
-            <div id="testimonials"><Testimonials /></div>
+          <LazySection id="testimonials" height="min-h-screen">
+            <Testimonials />
           </LazySection>
         </Suspense>
 
@@ -97,14 +95,14 @@ function AppContent() {
         </Suspense>
 
         <Suspense fallback={<div className="min-h-screen w-full" />}>
-          <LazySection height="min-h-screen">
-            <div id="blog"><Blog /></div>
+          <LazySection id="blog" height="min-h-screen">
+            <Blog />
           </LazySection>
         </Suspense>
 
         <Suspense fallback={<div className="min-h-screen w-full" />}>
-          <LazySection height="min-h-screen">
-            <div id="contact"><Contact /></div>
+          <LazySection id="contact" height="min-h-screen">
+            <Contact />
           </LazySection>
         </Suspense>
 

@@ -45,12 +45,14 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }) {
                                         onClick={(e) => {
                                             e.preventDefault();
                                             setIsOpen(false);
+                                            const targetId = link.href.replace('#', '');
+                                            if (link.href === "#" || link.href === "#hero") {
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                return;
+                                            }
+                                            // Trigger lazy loading
+                                            window.dispatchEvent(new CustomEvent('nav-scroll-to', { detail: targetId }));
                                             setTimeout(() => {
-                                                if (link.href === "#" || link.href === "#hero") {
-                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                                    return;
-                                                }
-                                                const targetId = link.href.replace('#', '');
                                                 const targetEl = document.getElementById(targetId);
                                                 if (targetEl) {
                                                     const navOffset = 80;
@@ -58,7 +60,7 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }) {
                                                     const offsetPosition = elementPosition + window.pageYOffset - navOffset;
                                                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                                                 }
-                                            }, 250);
+                                            }, 100);
                                         }}
                                         className="flex items-baseline gap-4 cursor-pointer"
                                     >

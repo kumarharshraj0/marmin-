@@ -22,7 +22,6 @@ export default function Navbar() {
     const navLinks = [
         { name: "Home", href: "#hero" },
         { name: "About", href: "#about" },
-        { name: "Showreel", href: "#showreel" },
         { name: "Services", href: "#services" },
         { name: "Work", href: "#projects" },
         { name: "Testimonials", href: "#testimonials" },
@@ -36,17 +35,24 @@ export default function Navbar() {
             return;
         }
         const targetId = href.replace('#', '');
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) {
-            const navOffset = 90;
-            const elementPosition = targetEl.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+        
+        // Dispatch custom event to notify LazySection to mount immediately
+        window.dispatchEvent(new CustomEvent('nav-scroll-to', { detail: targetId }));
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
+        // Allow microtask/render to ensure element is placed
+        setTimeout(() => {
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+                const navOffset = 90;
+                const elementPosition = targetEl.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 30);
     }
 
     return (
