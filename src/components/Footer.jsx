@@ -17,7 +17,7 @@ export default function Footer() {
         },
         {
             name: "LinkedIn",
-            href: "https://linkedin.com",
+            href: "https://www.linkedin.com/company/marmin-media/",
             bg: "bg-[#0077B5] hover:bg-[#006097]",
             icon: (
                 <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
