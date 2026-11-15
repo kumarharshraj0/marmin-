@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hharshportfolio.com/sitemap.xml
+# Disallow build and private assets if any
+Disallow: /api/
+
+Sitemap: https://marminmedia.com/sitemap.xml
+Host: https://marminmedia.com
