@@ -8,7 +8,7 @@ const reelsShowcase = [
     id: 1,
     title: "Ferrari Cinematic · The Art of High-Velocity Storytelling",
     caption: "visual pacing & sensory editing",
-    views: "1M VIEWS",
+    views: "980K VIEWS",
     category: "CINEMATIC SPEC",
     gradient: "from-[#3a0808] via-[#1f0505] to-[#0E0B1D]",
     avatar: "🏎️",
@@ -17,9 +17,9 @@ const reelsShowcase = [
   },
   {
     id: 2,
-    title: "How we turned $10K ad spend into $1.2M revenue",
+    title: "How we turned $10K ad spend into $120K revenue",
     caption: "breakdown of funnels",
-    views: "5.4M VIEWS",
+    views: "640K VIEWS",
     category: "CASE STUDY",
     gradient: "from-[#2A1E4D] via-[#1a1333] to-[#0E0B1D]",
     avatar: "📈"
@@ -28,7 +28,7 @@ const reelsShowcase = [
     id: 3,
     title: "The psychological trigger that doubles conversions",
     caption: "framing the price",
-    views: "4.1M VIEWS",
+    views: "520K VIEWS",
     category: "CONSUMER PSYCHOLOGY",
     gradient: "from-[#4a1c6d] via-[#240e3b] to-[#0E0B1D]",
     avatar: "🧠"
@@ -37,7 +37,7 @@ const reelsShowcase = [
     id: 4,
     title: "Inside the viral launch formula behind top tech brands",
     caption: "attention distribution",
-    views: "6.8M VIEWS",
+    views: "890K VIEWS",
     category: "PRODUCT LAUNCH",
     gradient: "from-[#1e1b4b] via-[#151233] to-[#0E0B1D]",
     avatar: "🚀"
@@ -46,7 +46,7 @@ const reelsShowcase = [
     id: 5,
     title: "Why conventional education is obsolete in 2026",
     caption: "skills over degrees",
-    views: "7.2M VIEWS",
+    views: "1.0M VIEWS",
     category: "VIRAL NARRATIVE",
     gradient: "from-[#311042] via-[#1f0b2a] to-[#0E0B1D]",
     avatar: "⚡"
@@ -55,7 +55,7 @@ const reelsShowcase = [
     id: 6,
     title: "The hook formula that guarantees 80% retention",
     caption: "first 3 seconds rule",
-    views: "5.1M VIEWS",
+    views: "710K VIEWS",
     category: "RETENTION HACKS",
     gradient: "from-[#1e293b] via-[#0f172a] to-[#0E0B1D]",
     avatar: "🎯"
@@ -64,7 +64,7 @@ const reelsShowcase = [
     id: 7,
     title: "How AI video editing cuts production time by 90%",
     caption: "modern workflow",
-    views: "4.7M VIEWS",
+    views: "580K VIEWS",
     category: "PRODUCTION AI",
     gradient: "from-[#3b1236] via-[#210c1f] to-[#0E0B1D]",
     avatar: "🎬"
