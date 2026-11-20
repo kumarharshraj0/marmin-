@@ -4,13 +4,10 @@ import { m as motion } from "framer-motion"
 const reelsData = [
   {
     id: 1,
-    title: "Ferrari Cinematic Spec",
     tag: "CINEMATIC SPEC",
     views: "980K",
     likes: "64K",
     gradient: "from-red-950 via-rose-950 to-black",
-    avatar: "🏎️",
-    person: "Ferrari Reel",
     video: "/ferrari_reel.mp4",
     poster: "/ferrari_poster.jpg",
     pos: "top-[-5%] left-[8%] lg:top-[2%] lg:left-[12%]",
@@ -20,13 +17,12 @@ const reelsData = [
   },
   {
     id: 2,
-    title: "Future of Payment & AI",
-    tag: "FINTECH REEL",
-    views: "720K",
-    likes: "42K",
+    tag: "CREATOR VIRAL",
+    views: "940K",
+    likes: "58K",
     gradient: "from-indigo-900 via-purple-950 to-black",
-    avatar: "⚡",
-    person: "Marmin Talk",
+    video: "/raj_shamani_1.mp4",
+    poster: "/raj_shamani_1_poster.jpg",
     pos: "top-[-15%] left-[52%] lg:top-[-6%] lg:left-[48%]",
     rotate: "3deg",
     floatDuration: 6,
@@ -34,13 +30,12 @@ const reelsData = [
   },
   {
     id: 3,
-    title: "Attention = Currency",
-    tag: "KEYNOTE TALK",
-    views: "1.0M",
-    likes: "78K",
+    tag: "PODCAST CLIP",
+    views: "820K",
+    likes: "52K",
     gradient: "from-fuchsia-950 via-purple-950 to-black",
-    avatar: "🎙️",
-    person: "Sarah J.",
+    video: "/raj_shamani_2.mp4",
+    poster: "/raj_shamani_2_poster.jpg",
     pos: "top-[15%] right-[-6%] lg:top-[14%] lg:right-[0%]",
     rotate: "10deg",
     floatDuration: 5.5,
@@ -48,13 +43,12 @@ const reelsData = [
   },
   {
     id: 4,
-    title: "Viral hook breakdown",
-    tag: "CASE STUDY",
-    views: "640K",
-    likes: "38K",
+    tag: "BUSINESS TALK",
+    views: "760K",
+    likes: "46K",
     gradient: "from-slate-900 via-purple-950 to-black",
-    avatar: "🔥",
-    person: "Tanmay B.",
+    video: "/raj_shamani_3.mp4",
+    poster: "/raj_shamani_3_poster.jpg",
     pos: "bottom-[5%] right-[6%] lg:bottom-[8%] lg:right-[16%]",
     rotate: "-5deg",
     floatDuration: 6.2,
@@ -62,13 +56,12 @@ const reelsData = [
   },
   {
     id: 5,
-    title: "Stop running bad ads",
-    tag: "GROWTH TIPS",
-    views: "530K",
-    likes: "31K",
+    tag: "FOUNDER STORY",
+    views: "890K",
+    likes: "61K",
     gradient: "from-violet-950 via-indigo-950 to-black",
-    avatar: "💡",
-    person: "Media Mind",
+    video: "/raj_shamani_4.mp4",
+    poster: "/raj_shamani_4_poster.jpg",
     pos: "bottom-[-10%] left-[18%] lg:bottom-[-2%] lg:left-[22%]",
     rotate: "5deg",
     floatDuration: 5.8,
@@ -213,7 +206,7 @@ export default memo(function HeroRight({ isLoaded }) {
           {/* Smartphone Reel Container */}
           <div className={`w-[110px] sm:w-[130px] md:w-[145px] aspect-[9/16] rounded-2xl md:rounded-[1.4rem] bg-gradient-to-b ${reel.gradient} p-2 border border-white/15 shadow-2xl backdrop-blur-xl flex flex-col justify-between overflow-hidden relative group/card hover:border-purple-400/80 transition-colors`}>
 
-            {/* If card has a real video reel, play looping in background */}
+            {/* If card has a real video reel, play looping in background without any distracting icons */}
             {reel.video && (
               <>
                 <video
@@ -226,7 +219,7 @@ export default memo(function HeroRight({ isLoaded }) {
                   preload="metadata"
                   className="absolute inset-0 w-full h-full object-cover z-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 z-[1] pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 z-[1] pointer-events-none" />
               </>
             )}
 
@@ -238,22 +231,8 @@ export default memo(function HeroRight({ isLoaded }) {
               <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
             </div>
 
-            {/* Middle Video Content Simulation */}
-            <div className="relative my-auto flex flex-col items-center justify-center text-center z-10">
-              {/* Profile Avatar / Speaker */}
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-base sm:text-lg mb-1.5 shadow-md backdrop-blur-sm">
-                {reel.avatar}
-              </div>
-              <span className="text-[9px] font-semibold text-white/90 truncate max-w-full px-1 font-sans drop-shadow-md">
-                {reel.person}
-              </span>
-              <span className="text-[8px] font-medium text-white/70 line-clamp-2 px-1 leading-tight mt-0.5 font-sans drop-shadow">
-                "{reel.title}"
-              </span>
-            </div>
-
             {/* Bottom Floating Stats (Views / Likes) */}
-            <div className="relative z-10 pt-1.5 border-t border-white/10 flex items-center justify-between text-[8px] font-mono text-white/80">
+            <div className="relative z-10 pt-1.5 border-t border-white/10 flex items-center justify-between text-[8px] font-mono text-white/80 mt-auto">
               <span className="flex items-center gap-1">
                 <span>👁️</span> {reel.views}
               </span>
