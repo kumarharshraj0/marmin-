@@ -4,13 +4,15 @@ import { m as motion } from "framer-motion"
 const reelsData = [
   {
     id: 1,
-    title: "How to scale to 100k",
-    tag: "POV: FOUNDER",
-    views: "1.4M",
-    likes: "82K",
-    gradient: "from-purple-900 via-indigo-950 to-black",
-    avatar: "👑",
-    person: "Alex C.",
+    title: "Ferrari Cinematic Spec",
+    tag: "CINEMATIC SPEC",
+    views: "8.9M",
+    likes: "540K",
+    gradient: "from-red-950 via-rose-950 to-black",
+    avatar: "🏎️",
+    person: "Ferrari Reel",
+    video: "/ferrari_reel.mp4",
+    poster: "/ferrari_poster.jpg",
     pos: "top-[-5%] left-[8%] lg:top-[2%] lg:left-[12%]",
     rotate: "-7deg",
     floatDuration: 5,
@@ -211,30 +213,47 @@ export default memo(function HeroRight({ isLoaded }) {
           {/* Smartphone Reel Container */}
           <div className={`w-[110px] sm:w-[130px] md:w-[145px] aspect-[9/16] rounded-2xl md:rounded-[1.4rem] bg-gradient-to-b ${reel.gradient} p-2 border border-white/15 shadow-2xl backdrop-blur-xl flex flex-col justify-between overflow-hidden relative group/card hover:border-purple-400/80 transition-colors`}>
 
+            {/* If card has a real video reel, play looping in background */}
+            {reel.video && (
+              <>
+                <video
+                  src={reel.video}
+                  poster={reel.poster}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover z-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 z-[1] pointer-events-none" />
+              </>
+            )}
+
             {/* Top Phone Notch + Tag */}
             <div className="flex items-center justify-between relative z-10">
-              <span className="text-[7px] font-mono tracking-wider px-1.5 py-0.5 rounded-full bg-white/10 text-white/90 uppercase backdrop-blur-sm">
+              <span className="text-[7px] font-mono tracking-wider px-1.5 py-0.5 rounded-full bg-black/60 text-white/90 uppercase backdrop-blur-sm border border-white/10">
                 {reel.tag}
               </span>
               <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
             </div>
 
             {/* Middle Video Content Simulation */}
-            <div className="relative my-auto flex flex-col items-center justify-center text-center">
+            <div className="relative my-auto flex flex-col items-center justify-center text-center z-10">
               {/* Profile Avatar / Speaker */}
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-base sm:text-lg mb-1.5 shadow-md">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-base sm:text-lg mb-1.5 shadow-md backdrop-blur-sm">
                 {reel.avatar}
               </div>
-              <span className="text-[9px] font-semibold text-white/90 truncate max-w-full px-1 font-sans">
+              <span className="text-[9px] font-semibold text-white/90 truncate max-w-full px-1 font-sans drop-shadow-md">
                 {reel.person}
               </span>
-              <span className="text-[8px] font-medium text-white/60 line-clamp-2 px-1 leading-tight mt-0.5 font-sans">
+              <span className="text-[8px] font-medium text-white/70 line-clamp-2 px-1 leading-tight mt-0.5 font-sans drop-shadow">
                 "{reel.title}"
               </span>
             </div>
 
             {/* Bottom Floating Stats (Views / Likes) */}
-            <div className="relative z-10 pt-1.5 border-t border-white/10 flex items-center justify-between text-[8px] font-mono text-white/70">
+            <div className="relative z-10 pt-1.5 border-t border-white/10 flex items-center justify-between text-[8px] font-mono text-white/80">
               <span className="flex items-center gap-1">
                 <span>👁️</span> {reel.views}
               </span>
@@ -244,12 +263,12 @@ export default memo(function HeroRight({ isLoaded }) {
             </div>
 
             {/* Bottom Reel Timeline Bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/20">
+            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/20 z-10">
               <div className="h-full bg-gradient-to-r from-purple-400 to-pink-500 w-2/3 animate-pulse" />
             </div>
 
             {/* Hover Spotlight Glow */}
-            <div className="absolute inset-0 bg-purple-500/0 group-hover/card:bg-purple-500/10 transition-colors pointer-events-none" />
+            <div className="absolute inset-0 bg-purple-500/0 group-hover/card:bg-purple-500/10 transition-colors pointer-events-none z-10" />
           </div>
         </motion.div>
       ))}

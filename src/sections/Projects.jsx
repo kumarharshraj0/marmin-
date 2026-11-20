@@ -8,7 +8,7 @@ const reelsShowcase = [
     id: 1,
     title: "Ferrari Cinematic · The Art of High-Velocity Storytelling",
     caption: "visual pacing & sensory editing",
-    views: "8.9M VIEWS",
+    views: "1M VIEWS",
     category: "CINEMATIC SPEC",
     gradient: "from-[#3a0808] via-[#1f0505] to-[#0E0B1D]",
     avatar: "🏎️",
@@ -209,19 +209,19 @@ export default function Projects() {
   useEffect(() => {
     if (!videoRef.current) return
     if (activeIndex === 0) {
-      videoRef.current.play().catch(() => {})
+      videoRef.current.play().catch(() => { })
     } else {
       videoRef.current.pause()
     }
   }, [activeIndex])
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="work" 
+    <section
+      ref={sectionRef}
+      id="work"
       className="relative py-20 sm:py-28 px-2 sm:px-6 md:px-12 bg-black overflow-hidden font-sans select-none"
     >
-      
+
       {/* Background Subtle Grid & Ambient Glow */}
       <div className="absolute inset-0 bg-grid opacity-[0.03] mask-radial pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-purple-600/10 blur-[160px] rounded-full pointer-events-none" />
@@ -241,12 +241,12 @@ export default function Projects() {
       </div>
 
       {/* 3D Cylindrical / Coverflow Animated Reels Carousel */}
-      <div 
+      <div
         className="relative w-full max-w-6xl mx-auto h-[480px] sm:h-[560px] md:h-[620px] flex items-center justify-center touch-pan-y"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        
+
         {/* Navigation Arrow Left */}
         <button
           onClick={handlePrev}
@@ -278,7 +278,7 @@ export default function Projects() {
 
             const isCenter = offset === 0
             const zIndex = 30 - Math.abs(offset) * 5
-            
+
             // Scaled responsive spacing: tighter on mobile so adjacent cards peek nicely without overflow
             const scale = 1 - Math.abs(offset) * 0.16
             const rotateY = offset * -16 // 3D curve rotation
@@ -316,27 +316,27 @@ export default function Projects() {
               >
                 {/* Top Notch & Category */}
                 <div className="flex items-center justify-between relative z-10">
-                  <span className="text-[9px] font-mono tracking-wider px-2.5 py-1 rounded-full bg-black/60 text-white/90 uppercase backdrop-blur-md border border-white/10 group-hover:border-purple-400/50 group-hover:bg-purple-500/20 transition-all">
-                    {reel.category}
-                  </span>
-                  <div className="flex items-center gap-2">
-                    {reel.video && isCenter && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          if (videoRef.current) {
-                            videoRef.current.muted = !isMuted
-                            setIsMuted(!isMuted)
-                          }
-                        }}
-                        className="px-2 py-0.5 rounded-full bg-black/60 border border-white/20 text-[10px] text-white hover:bg-black/90 transition-colors"
-                        aria-label="Toggle mute"
-                      >
-                        {isMuted ? "🔇" : "🔊"}
-                      </button>
-                    )}
-                    <div className={`w-2 h-2 rounded-full ${isCenter ? 'bg-red-500 animate-pulse' : 'bg-white/30 group-hover:bg-red-400'} transition-colors`} />
-                  </div>
+                    <span className="text-[9px] font-mono tracking-wider px-2.5 py-1 rounded-full bg-black/60 text-white/90 uppercase backdrop-blur-md border border-white/10 group-hover:border-purple-400/50 group-hover:bg-purple-500/20 transition-all">
+                      {reel.category}
+                    </span>
+                    <div className="flex items-center gap-2">
+                      {reel.video && isCenter && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (videoRef.current) {
+                              videoRef.current.muted = !isMuted
+                              setIsMuted(!isMuted)
+                            }
+                          }}
+                          className="px-2 py-0.5 rounded-full bg-black/60 border border-white/20 text-[10px] text-white hover:bg-black/90 transition-colors"
+                          aria-label="Toggle mute"
+                        >
+                          {isMuted ? "🔇" : "🔊"}
+                        </button>
+                      )}
+                      <div className={`w-2 h-2 rounded-full ${isCenter ? 'bg-red-500 animate-pulse' : 'bg-white/30 group-hover:bg-red-400'} transition-colors`} />
+                    </div>
                 </div>
 
                 {/* If card has a real video, play it seamlessly as background */}
@@ -358,50 +358,50 @@ export default function Projects() {
 
                 {/* Reel Card Content */}
                 <div className="relative my-auto flex flex-col items-center text-center px-1 sm:px-2 z-10">
-                  <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-2xl mb-3 shadow-lg group-hover:scale-110 group-hover:border-purple-400/60 group-hover:bg-purple-600/30 transition-all duration-300 backdrop-blur-md">
-                    {reel.avatar}
+                    <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-2xl mb-3 shadow-lg group-hover:scale-110 group-hover:border-purple-400/60 group-hover:bg-purple-600/30 transition-all duration-300 backdrop-blur-md">
+                      {reel.avatar}
+                    </div>
+                      <h4 className="text-[13px] sm:text-[16px] font-semibold text-white/95 leading-snug tracking-tight mb-2 font-sans group-hover:text-purple-200 transition-colors drop-shadow-md">
+                        {reel.title}
+                      </h4>
+                        <p className="text-[11px] sm:text-[12px] text-purple-300 font-mono italic group-hover:text-white transition-colors drop-shadow">
+                          "{reel.caption}"
+                        </p>
+                      </div>
+
+                      {/* Bottom View Counter Badge (From Reference Screenshot) */}
+                      <div className="relative z-10 flex flex-col items-center">
+                        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-black/70 border border-white/15 backdrop-blur-xl shadow-lg group-hover:border-purple-400/60 group-hover:bg-purple-950/60 group-hover:scale-105 transition-all">
+                          <span className="text-[11px] text-purple-300 group-hover:scale-125 transition-transform">👁️</span>
+                          <span className="text-[10px] sm:text-[12px] font-mono font-bold tracking-widest text-white group-hover:text-purple-200">
+                            {reel.views}
+                          </span>
+                        </div>
+
+                        {/* Playhead Progress Bar with Hover Speed/Glow */}
+                        <div className="w-full h-[2.5px] bg-white/15 rounded-full mt-3 overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-purple-400 to-indigo-400 w-3/4 rounded-full group-hover:w-full group-hover:from-purple-300 group-hover:to-pink-400 transition-all duration-500"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Interactive Spotlight Radial Aura on Hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 via-transparent to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    </motion.div>
+                    )
+          })}
                   </div>
-                  <h4 className="text-[13px] sm:text-[16px] font-semibold text-white/95 leading-snug tracking-tight mb-2 font-sans group-hover:text-purple-200 transition-colors drop-shadow-md">
-                    {reel.title}
-                  </h4>
-                  <p className="text-[11px] sm:text-[12px] text-purple-300 font-mono italic group-hover:text-white transition-colors drop-shadow">
-                    "{reel.caption}"
+
+                </div>
+
+                {/* Bottom Subtitle / Proof Bar */}
+                <div className="text-center mt-8 sm:mt-12 relative z-10 px-4">
+                  <p className="text-white/60 text-[13px] sm:text-[15px] font-sans">
+                    Swipe or tap any reel to explore our high-engagement production pipeline.
                   </p>
                 </div>
 
-                {/* Bottom View Counter Badge (From Reference Screenshot) */}
-                <div className="relative z-10 flex flex-col items-center">
-                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-black/70 border border-white/15 backdrop-blur-xl shadow-lg group-hover:border-purple-400/60 group-hover:bg-purple-950/60 group-hover:scale-105 transition-all">
-                    <span className="text-[11px] text-purple-300 group-hover:scale-125 transition-transform">👁️</span>
-                    <span className="text-[10px] sm:text-[12px] font-mono font-bold tracking-widest text-white group-hover:text-purple-200">
-                      {reel.views}
-                    </span>
-                  </div>
-
-                  {/* Playhead Progress Bar with Hover Speed/Glow */}
-                  <div className="w-full h-[2.5px] bg-white/15 rounded-full mt-3 overflow-hidden">
-                    <div 
-                      className="h-full bg-gradient-to-r from-purple-400 to-indigo-400 w-3/4 rounded-full group-hover:w-full group-hover:from-purple-300 group-hover:to-pink-400 transition-all duration-500" 
-                    />
-                  </div>
-                </div>
-
-                {/* Interactive Spotlight Radial Aura on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 via-transparent to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </motion.div>
+              </section>
             )
-          })}
-        </div>
-
-      </div>
-
-      {/* Bottom Subtitle / Proof Bar */}
-      <div className="text-center mt-8 sm:mt-12 relative z-10 px-4">
-        <p className="text-white/60 text-[13px] sm:text-[15px] font-sans">
-          Swipe or tap any reel to explore our high-engagement production pipeline.
-        </p>
-      </div>
-
-    </section>
-  )
-}
+          }
