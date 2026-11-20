@@ -6,6 +6,17 @@ import FadeUp from "../components/FadeUp"
 const reelsShowcase = [
   {
     id: 1,
+    title: "Ferrari Cinematic · The Art of High-Velocity Storytelling",
+    caption: "visual pacing & sensory editing",
+    views: "8.9M VIEWS",
+    category: "CINEMATIC SPEC",
+    gradient: "from-[#3a0808] via-[#1f0505] to-[#0E0B1D]",
+    avatar: "🏎️",
+    video: "/ferrari_reel.mp4",
+    poster: "/ferrari_poster.jpg"
+  },
+  {
+    id: 2,
     title: "How we turned $10K ad spend into $1.2M revenue",
     caption: "breakdown of funnels",
     views: "5.4M VIEWS",
@@ -14,7 +25,7 @@ const reelsShowcase = [
     avatar: "📈"
   },
   {
-    id: 2,
+    id: 3,
     title: "The psychological trigger that doubles conversions",
     caption: "framing the price",
     views: "4.1M VIEWS",
@@ -23,22 +34,13 @@ const reelsShowcase = [
     avatar: "🧠"
   },
   {
-    id: 3,
+    id: 4,
     title: "Inside the viral launch formula behind top tech brands",
     caption: "attention distribution",
     views: "6.8M VIEWS",
     category: "PRODUCT LAUNCH",
     gradient: "from-[#1e1b4b] via-[#151233] to-[#0E0B1D]",
     avatar: "🚀"
-  },
-  {
-    id: 4,
-    title: "The only 3 books you NEED TO CHANGE YOUR LIFE",
-    caption: "person should read",
-    views: "3.9M VIEWS",
-    category: "KNOWLEDGE",
-    gradient: "from-[#1f2937] via-[#111827] to-[#0E0B1D]",
-    avatar: "📚"
   },
   {
     id: 5,
@@ -70,7 +72,9 @@ const reelsShowcase = [
 ]
 
 export default function Projects() {
-  const [activeIndex, setActiveIndex] = useState(2) // start centered on featured reel
+  const [activeIndex, setActiveIndex] = useState(0) // start centered on featured video reel
+  const [isMuted, setIsMuted] = useState(true)
+  const videoRef = useRef(null)
   const sectionRef = useRef(null)
   const isHoveredRef = useRef(false)
   const directionRef = useRef(1) // 1: forward, -1: backward (ping-pong)
@@ -201,6 +205,16 @@ export default function Projects() {
     touchStartYRef.current = null
   }
 
+  // Play video only when active card has a video, pause otherwise
+  useEffect(() => {
+    if (!videoRef.current) return
+    if (activeIndex === 0) {
+      videoRef.current.play().catch(() => {})
+    } else {
+      videoRef.current.pause()
+    }
+  }, [activeIndex])
+
   return (
     <section 
       ref={sectionRef} 
@@ -302,21 +316,55 @@ export default function Projects() {
               >
                 {/* Top Notch & Category */}
                 <div className="flex items-center justify-between relative z-10">
-                  <span className="text-[9px] font-mono tracking-wider px-2.5 py-1 rounded-full bg-white/10 text-white/90 uppercase backdrop-blur-md border border-white/10 group-hover:border-purple-400/50 group-hover:bg-purple-500/20 transition-all">
+                  <span className="text-[9px] font-mono tracking-wider px-2.5 py-1 rounded-full bg-black/60 text-white/90 uppercase backdrop-blur-md border border-white/10 group-hover:border-purple-400/50 group-hover:bg-purple-500/20 transition-all">
                     {reel.category}
                   </span>
-                  <div className={`w-2 h-2 rounded-full ${isCenter ? 'bg-red-500 animate-pulse' : 'bg-white/30 group-hover:bg-red-400'} transition-colors`} />
+                  <div className="flex items-center gap-2">
+                    {reel.video && isCenter && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          if (videoRef.current) {
+                            videoRef.current.muted = !isMuted
+                            setIsMuted(!isMuted)
+                          }
+                        }}
+                        className="px-2 py-0.5 rounded-full bg-black/60 border border-white/20 text-[10px] text-white hover:bg-black/90 transition-colors"
+                        aria-label="Toggle mute"
+                      >
+                        {isMuted ? "🔇" : "🔊"}
+                      </button>
+                    )}
+                    <div className={`w-2 h-2 rounded-full ${isCenter ? 'bg-red-500 animate-pulse' : 'bg-white/30 group-hover:bg-red-400'} transition-colors`} />
+                  </div>
                 </div>
 
-                {/* Simulated Reel Video Player Content with Hover Elevation */}
+                {/* If card has a real video, play it seamlessly as background */}
+                {reel.video ? (
+                  <>
+                    <video
+                      ref={videoRef}
+                      src={reel.video}
+                      poster={reel.poster}
+                      playsInline
+                      loop
+                      muted={isMuted}
+                      preload="metadata"
+                      className="absolute inset-0 w-full h-full object-cover z-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/50 z-[1] pointer-events-none" />
+                  </>
+                ) : null}
+
+                {/* Reel Card Content */}
                 <div className="relative my-auto flex flex-col items-center text-center px-1 sm:px-2 z-10">
-                  <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-2xl mb-3 shadow-lg group-hover:scale-110 group-hover:border-purple-400/60 group-hover:bg-purple-600/30 transition-all duration-300">
+                  <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-2xl mb-3 shadow-lg group-hover:scale-110 group-hover:border-purple-400/60 group-hover:bg-purple-600/30 transition-all duration-300 backdrop-blur-md">
                     {reel.avatar}
                   </div>
-                  <h4 className="text-[13px] sm:text-[16px] font-semibold text-white/95 leading-snug tracking-tight mb-2 font-sans group-hover:text-purple-200 transition-colors">
+                  <h4 className="text-[13px] sm:text-[16px] font-semibold text-white/95 leading-snug tracking-tight mb-2 font-sans group-hover:text-purple-200 transition-colors drop-shadow-md">
                     {reel.title}
                   </h4>
-                  <p className="text-[11px] sm:text-[12px] text-purple-300 font-mono italic group-hover:text-white transition-colors">
+                  <p className="text-[11px] sm:text-[12px] text-purple-300 font-mono italic group-hover:text-white transition-colors drop-shadow">
                     "{reel.caption}"
                   </p>
                 </div>
