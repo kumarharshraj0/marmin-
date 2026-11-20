@@ -344,7 +344,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* If card has a real video, play it seamlessly as background */}
+                {/* If card has a real video, play it seamlessly as clean background */}
                 {reel.video ? (
                   <>
                     <video
@@ -357,22 +357,22 @@ export default function Projects() {
                       preload="metadata"
                       className="absolute inset-0 w-full h-full object-cover z-0"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/50 z-[1] pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 z-[1] pointer-events-none" />
                   </>
-                ) : null}
-
-                {/* Reel Card Content */}
-                <div className="relative my-auto flex flex-col items-center text-center px-1 sm:px-2 z-10">
-                  <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-2xl mb-3 shadow-lg group-hover:scale-110 group-hover:border-purple-400/60 group-hover:bg-purple-600/30 transition-all duration-300 backdrop-blur-md">
-                    {reel.avatar}
+                ) : (
+                  /* Placeholder icon & title only for non-video reels */
+                  <div className="relative my-auto flex flex-col items-center text-center px-1 sm:px-2 z-10">
+                    <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-2xl mb-3 shadow-lg group-hover:scale-110 group-hover:border-purple-400/60 group-hover:bg-purple-600/30 transition-all duration-300 backdrop-blur-md">
+                      {reel.avatar}
+                    </div>
+                    <h4 className="text-[13px] sm:text-[16px] font-semibold text-white/95 leading-snug tracking-tight mb-2 font-sans group-hover:text-purple-200 transition-colors drop-shadow-md">
+                      {reel.title}
+                    </h4>
+                    <p className="text-[11px] sm:text-[12px] text-purple-300 font-mono italic group-hover:text-white transition-colors drop-shadow">
+                      "{reel.caption}"
+                    </p>
                   </div>
-                  <h4 className="text-[13px] sm:text-[16px] font-semibold text-white/95 leading-snug tracking-tight mb-2 font-sans group-hover:text-purple-200 transition-colors drop-shadow-md">
-                    {reel.title}
-                  </h4>
-                  <p className="text-[11px] sm:text-[12px] text-purple-300 font-mono italic group-hover:text-white transition-colors drop-shadow">
-                    "{reel.caption}"
-                  </p>
-                </div>
+                )}
 
                 {/* Bottom View Counter Badge (From Reference Screenshot) */}
                 <div className="relative z-10 flex flex-col items-center">
