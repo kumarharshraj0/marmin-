@@ -4,7 +4,7 @@ import { m as motion } from "framer-motion"
 const reelsData = [
   {
     id: 1,
-    tag: "CINEMATIC SPEC",
+
     views: "980K",
     likes: "64K",
     gradient: "from-red-950 via-rose-950 to-black",
@@ -17,7 +17,7 @@ const reelsData = [
   },
   {
     id: 2,
-    tag: "CREATOR VIRAL",
+
     views: "940K",
     likes: "58K",
     gradient: "from-indigo-900 via-purple-950 to-black",
@@ -30,7 +30,7 @@ const reelsData = [
   },
   {
     id: 3,
-    tag: "PODCAST CLIP",
+
     views: "820K",
     likes: "52K",
     gradient: "from-fuchsia-950 via-purple-950 to-black",
@@ -43,7 +43,7 @@ const reelsData = [
   },
   {
     id: 4,
-    tag: "BUSINESS TALK",
+
     views: "760K",
     likes: "46K",
     gradient: "from-slate-900 via-purple-950 to-black",
@@ -56,7 +56,7 @@ const reelsData = [
   },
   {
     id: 5,
-    tag: "FOUNDER STORY",
+
     views: "890K",
     likes: "61K",
     gradient: "from-violet-950 via-indigo-950 to-black",

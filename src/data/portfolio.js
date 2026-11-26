@@ -172,25 +172,25 @@ export const portfolioData = {
         {
             name: "Ananya Singh",
             role: "GROWTH MANAGER",
-            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
             text: "Reliable, professional, and easy to work with. They took the time to understand our business and delivered excellent service."
         },
         {
             name: "Rajesh Kumar",
             role: "FOUNDER & CEO",
-            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+            avatar: "https://images.unsplash.com/photo-1649433658557-54cf58577c68?w=150&auto=format&fit=crop&q=80",
             text: "Marmin Media delivers exactly what they promise. Their team is responsive and genuinely cares about client success."
         },
         {
             name: "Priya Sharma",
             role: "MARKETING DIRECTOR",
-            avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+            avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=150&auto=format&fit=crop&q=80",
             text: "Working with them was a smooth experience. They explained everything clearly and made the whole process easy to understand."
         },
         {
             name: "Arjun Patel",
             role: "BUSINESS OWNER",
-            avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+            avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
             text: "Great communication and attention to detail. Sachin's team is strategic and always thinking of what's best for our brand."
         }
     ],
