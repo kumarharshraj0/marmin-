@@ -33,4 +33,10 @@ dist-ssr
 # Large raw media files
 *.mp4
 !public/showreel.mp4
+!public/ferrari_reel.mp4
+!public/raj_shamani_1.mp4
+!public/raj_shamani_2.mp4
+!public/raj_shamani_3.mp4
+!public/raj_shamani_4.mp4
+!public/clip_2.mp4
 marmin media _prob3.mp4
